@@ -82,6 +82,11 @@ int main ()
 				printf("Enter the Process number for which the resources are to be allocated\n");
 				scanf("%d", &y);
 				pr = 0;
+				if(y<1 || y>n)
+				{
+					printf("Invalid Process Number\n");
+					break;
+				}
 				for(z=0; z<m; z++)
 				{
 					if (request[y-1][z] != 0)
@@ -104,6 +109,11 @@ int main ()
 				printf("Enter the Process number which is making the resource allocation request\n");
 				scanf("%d", &y);
 				pr = 0;
+				if(y<1 || y>n)
+				{
+					printf("Invalid Process Number\n");
+					break;
+				}
 				for(z=0; z<m; z++)
 				{
 					printf("Enter amount of Resource %d requested by Process %d\n", z+1, y);
