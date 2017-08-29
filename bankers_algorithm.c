@@ -71,7 +71,7 @@ int main ()
 				pr = check_state(max, allocation, need, available);
 				if (pr == 1)
 				{
-					printf(" \n-------------Safe State-------------\n");
+//					printf(" \n-------------Safe State-------------\n");
 				}
 				else
 				{
@@ -226,6 +226,8 @@ int check_state(int max[n][m], int allocate[n][m], int need[n][m], int available
 
 	int p = 0;
 	i = 0;
+	int pp[n];
+	int yy = 0; 
 
 	while (1)
 	{
@@ -235,6 +237,7 @@ int check_state(int max[n][m], int allocate[n][m], int need[n][m], int available
 		if (finish[i] == 0 && check_need_state(need[i], work) == 0)
 		{
 			update_work(work, allocate[i]);
+			pp[yy++] = i;
 			finish[i] = 1;
 			p = 0;
 		}
@@ -251,6 +254,11 @@ int check_state(int max[n][m], int allocate[n][m], int need[n][m], int available
 		{
 			return 0;
 		}
+	}
+	printf("Safe State:-\n");
+	for(i = 0; i<n; i++)
+	{
+		printf("Process %d\n", pp[i]+1);
 	}
 
 	return 1;
